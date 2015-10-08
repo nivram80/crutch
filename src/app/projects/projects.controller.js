@@ -3,13 +3,20 @@
 
   angular
     .module('crutch')
-    .controller('ProjectsController', function (ProjectsService) {
+    .controller('ProjectsController', ['Project', '$scope', function (Project, $scope) {
       var pc = this;
+      pc.project = new Project();
+      pc.showAddProjectForm = false;
 
-      ProjectsService.query(function (data) {
+      Project.query(function(data) {
         pc.projects = data;
       });
 
-    });
+      $scope.save = function() {
+        pc.project.$create();
+        pc.projects.push(pc.project);
+        pc.project = new Project();
+      };
+    }]);
 
 })();

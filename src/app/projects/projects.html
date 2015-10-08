@@ -3,8 +3,18 @@
 
   <section class="projects">
     <h1>Projects</h1>
-    <div ng-repeat="project in projects.projects">
+    <div ng-repeat="project in projects.projects | orderBy:'created_at':true">
       <h3>{{project.title}}</h3>
+    </div>
+  </section>
+  <br>
+  <section>
+    <div ng-click="showAddProjectForm = !showAddProjectForm">Add New Project</div>
+    <div ng-show="showAddProjectForm">
+      <form name="newProjectForm" ng-submit="save(projects.project)">
+        <input ng-model="projects.project.title" placeholder="Project Title">
+      </form>
+      <button type="submit" ng-click="newProject()" value="Submit">New Project</button>
     </div>
   </section>
 
