@@ -13,7 +13,29 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
 // endbower
 h1 {
   text-transform: uppercase;
-  font-style: italic;
+  //font-style: italic;
+  border-bottom: 3px solid #006400;
+}
+
+a {
+  color: #006400;
+  transition: all 0.75s ease;
+  &:hover {
+    color: #000;
+    text-decoration: none;
+  }
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clear {
+  clear: both;
 }
 
 .browsehappy {
@@ -29,6 +51,28 @@ h1 {
   img.pull-right {
     width: 50px;
   }
+}
+
+.add-form {
+  padding-top: 20px;
+}
+
+input,
+textarea {
+  width: 100%;
+}
+
+textarea {
+  height: 100px;
+}
+
+.project {
+  border-bottom: 1px solid #006400
+}
+
+.controls {
+  font-size: 12px;
+  margin-top: 30px;
 }
 
 /**

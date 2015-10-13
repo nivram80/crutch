@@ -8,7 +8,23 @@
  */
 h1 {
   text-transform: uppercase;
-  font-style: italic; }
+  border-bottom: 3px solid #006400; }
+
+a {
+  color: #006400;
+  transition: all 0.75s ease; }
+  a:hover {
+    color: #000;
+    text-decoration: none; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.clear {
+  clear: both; }
 
 .browsehappy {
   margin: 0.2em 0;
@@ -20,6 +36,23 @@ h1 {
   height: 200px; }
   .thumbnail img.pull-right {
     width: 50px; }
+
+.add-form {
+  padding-top: 20px; }
+
+input,
+textarea {
+  width: 100%; }
+
+textarea {
+  height: 100px; }
+
+.project {
+  border-bottom: 1px solid #006400; }
+
+.controls {
+  font-size: 12px;
+  margin-top: 30px; }
 
 /**
  *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject

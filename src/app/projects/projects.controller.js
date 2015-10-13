@@ -13,9 +13,28 @@
       });
 
       $scope.save = function() {
-        pc.project.$create();
-        pc.projects.push(pc.project);
-        pc.project = new Project();
+        $.when(pc.project.$create()).then(
+          function() {
+            pc.projects.push(pc.project);
+            pc.project = new Project();
+          },
+          function(error) {
+            alert(error)
+          }
+        );
+
+      };
+
+      $scope.delete = function(project) {
+        $.when(Project.delete(project)).then(
+          function() {
+            _.remove(pc.projects, project);
+          },
+          function(error){
+            alert(error);
+          }
+        );
+
       };
     }]);
 

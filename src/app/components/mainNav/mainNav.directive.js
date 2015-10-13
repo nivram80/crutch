@@ -21,11 +21,8 @@
     return directive;
 
     /** @ngInject */
-    function MainNavController(moment) {
-      var vm = this;
+    function MainNavController() {
 
-      // "vm.creation" is available by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
     }
   }
 

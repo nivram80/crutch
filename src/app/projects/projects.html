@@ -3,18 +3,27 @@
 
   <section class="projects">
     <h1>Projects</h1>
-    <div ng-repeat="project in projects.projects | orderBy:'created_at':true">
-      <h3>{{project.title}}</h3>
+    <div class="project" ng-repeat="project in projects.projects | orderBy:'created_at':true">
+      <h3 class="left"><a href="#">{{project.title}}</a></h3>
+      <div class="controls right">
+        <span>Edit</span>
+        <span ng-click="delete(project)">Delete</span>
+      </div>
+      <p class="clear">{{project.client}}</p>
+      <p>{{project.description}}</p>
     </div>
   </section>
-  <br>
-  <section>
+
+  <section class="add-form clear">
     <div ng-click="showAddProjectForm = !showAddProjectForm">Add New Project</div>
     <div ng-show="showAddProjectForm">
       <form name="newProjectForm" ng-submit="save(projects.project)">
-        <input ng-model="projects.project.title" placeholder="Project Title">
+        <input type="text" ng-model="projects.project.title" placeholder="Project Title"><br><br>
+        <input type="text" ng-model="projects.project.client" placeholder="Client"><br><br>
+        <textarea ng-model="projects.project.description" placeholder="Project Description"></textarea>
       </form>
-      <button type="submit" ng-click="newProject()" value="Submit">New Project</button>
+      <br>
+      <button type="submit" ng-click="save(projects.project)" value="Submit">New Project</button>
     </div>
   </section>
 
