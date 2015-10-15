@@ -1,6 +1,13 @@
-.mainNav-text{
-  color: white;
+.mainNav-text {
+  color: #ffcc11;
 }
-.navBar {
-  border-bottom: 2px solid #006400;
+.navbar-inverse {
+  background-color: #777;
+  border: none;
+  .navbar-nav {
+    .active a {
+      background-color: #555;
+    }
+  }
 }
+

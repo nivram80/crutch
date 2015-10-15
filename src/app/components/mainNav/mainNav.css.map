@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,aAAa;EACX,KAAK,EAAE,KAAK;;AAEd,OAAQ;EACN,aAAa,EAAE,iBAAiB",
+"mappings": "AAAA,aAAc;EACZ,KAAK,EAAE,OAAO;;AAEhB,eAAgB;EACd,gBAAgB,EAAE,IAAI;EACtB,MAAM,EAAE,IAAI;EAEV,qCAAU;IACR,gBAAgB,EAAE,IAAI",
 "sources": ["mainNav.scss"],
 "names": [],
 "file": "mainNav.css"

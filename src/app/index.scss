@@ -2,7 +2,7 @@
  *  If you want to override some bootstrap variables, you have to change values here.
  *  The list of variables are listed here bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_variables.scss
  */
-$navbar-inverse-link-color: #FFCC11;
+$navbar-inverse-link-color: #006400;
 $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 
 /**
@@ -11,18 +11,26 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
  */
 // bower:scss
 // endbower
+body {
+  color: #555;
+}
+
 h1 {
   text-transform: uppercase;
-  //font-style: italic;
-  border-bottom: 3px solid #006400;
+  color: #555;
+  border-bottom: 3px solid #555;
 }
 
 a {
   color: #006400;
   transition: all 0.75s ease;
   &:hover {
-    color: #000;
+    color: #cc9d11;
     text-decoration: none;
+    cursor: pointer;
+  }
+  &:focus {
+    outline: none;
   }
 }
 
@@ -36,6 +44,35 @@ a {
 
 .clear {
   clear: both;
+}
+
+button {
+  background-color: transparent;
+  color: #006400;
+  font-weight: bold;
+  border: 2px solid #006400;
+  border-radius: 4px;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  transition: all 0.75s ease;
+  &:hover {
+    color: #fff;
+    background-color: #006400;
+    cursor: pointer;
+  }
+  &:focus {
+    outline: #cc9d11 auto 2px;
+    outline-offset: -5px;
+  }
+  &:disabled {
+    color: #ccc;
+    border-color: #ccc;
+    &:hover {
+      background-color: transparent;
+      color: #ccc;
+      border-color: #ccc;
+    }
+  }
 }
 
 .browsehappy {
@@ -53,17 +90,65 @@ a {
   }
 }
 
-.add-form {
+.add-form-button {
+
+}
+
+.add-form-section {
   padding-top: 20px;
+  overflow: hidden;
+}
+
+.add-form-container {
+  margin-top: 0;
+  transition: all 1s ease;
+}
+
+.add-form-container.ng-hide {
+  margin-top: -325px;
+  transition: all 1s ease;
 }
 
 input,
 textarea {
   width: 100%;
+  border: 1px solid #555;
+  border-radius: 2px;
+  padding-left: 8px;
+  padding-top: 2px;
+  font-size: 14px;
+  &:focus {
+    outline: #cc9d11 auto 2px;
+    outline-offset: -3px;
+  }
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+.logo {
+  display: none;
 }
 
 textarea {
   height: 100px;
+}
+
+.error {
+  color: #990000;
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+.api-error {
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+.required {
+  color: #ccc;
+  font-size: 12px;
 }
 
 .project {
@@ -73,6 +158,29 @@ textarea {
 .controls {
   font-size: 12px;
   margin-top: 30px;
+}
+
+.cancel {
+  display: inline-block;
+  text-transform: capitalize;
+  margin-left: 20px;
+  color: #555;
+}
+
+@media (min-width: 768px) {
+  .projects {
+    float: left;
+    width: 50%;
+  }
+  .logo {
+    display: block;
+    float: right;
+    width: 40%;
+    margin-top: 25px;
+    img {
+      width: 100%;
+    }
+  }
 }
 
 /**

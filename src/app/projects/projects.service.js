@@ -14,7 +14,11 @@ angular
     return $resource(baseUrl + "/projects/:id",
       { id: "@id" },
       {
-        'create':  { method: 'POST', transformRequest: formatData, headers: {'Authorization': apiKey} },
+        'create':  {
+          method: 'POST',
+          transformRequest: formatData,
+          headers: {'Authorization': apiKey}
+        },
         'query':   { method: 'GET', isArray: true, headers: {'Authorization': apiKey} },
         'show':    { method: 'GET', isArray: false },
         'update':  { method: 'PUT' },

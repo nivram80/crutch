@@ -7,35 +7,48 @@
       var pc = this;
       pc.project = new Project();
       pc.showAddProjectForm = false;
+      pc.errors = [];
 
       Project.query(function(data) {
         pc.projects = data;
       });
 
-      $scope.save = function() {
-        $.when(pc.project.$create()).then(
-          function() {
+      pc.create = function() {
+        $.when(pc.project.$create(function() {
             pc.projects.push(pc.project);
-            pc.project = new Project();
+            pc.resetForm();
           },
           function(error) {
-            alert(error)
+            var errorMessages = [];
+            angular.forEach(error.data, function(value, key) {
+              errorMessages.push(value[0])
+            });
+            pc.errors = errorMessages;
           }
-        );
+        ));
 
       };
 
-      $scope.delete = function(project) {
+      pc.delete = function(project) {
         $.when(Project.delete(project)).then(
           function() {
             _.remove(pc.projects, project);
           },
           function(error){
-            alert(error);
+            pc.errors = error.data;
           }
         );
 
       };
+
+      pc.resetForm = function() {
+        $scope.newProjectForm.$setPristine();
+        $scope.newProjectForm.$setUntouched();
+        $scope.showAddProjectForm = false;
+        pc.errors = [];
+        pc.project = new Project();
+      };
+
     }]);
 
 })();

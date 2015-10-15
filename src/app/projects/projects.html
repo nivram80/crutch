@@ -1,30 +1,51 @@
 <main-nav></main-nav>
 <div class="container">
 
+  <h1>Projects</h1>
+
   <section class="projects">
-    <h1>Projects</h1>
+    <button ng-click="showAddProjectForm = !showAddProjectForm">New Project</button>
+
+    <div class="api-error">
+      <div class="error" ng-repeat="error in projects.errors" ng-show="projects.errors">{{error}}</div>
+    </div>
+
+    <section class="add-form-section">
+      <div class="add-form-container" ng-show="showAddProjectForm">
+
+        <form name="newProjectForm" novalidate>
+
+          <input type="text" name="title" ng-model="projects.project.title" placeholder="Project Title *" required tabindex="1">
+          <div class="errors" ng-messages="newProjectForm.title.$error" ng-show="newProjectForm.title.$touched">
+            <p class="error" ng-message="required" ng-show="newProjectForm.title.$dirty">* Project Title is required</p>
+          </div>
+
+          <input type="text" ng-model="projects.project.client" placeholder="Client" tabindex="2">
+
+          <textarea ng-model="projects.project.description" placeholder="Project Description" tabindex="3"></textarea>
+
+        </form>
+        <p class="required right">* required fields</p>
+
+        <button class="button" type="submit" ng-click="projects.create(projects.project)" ng-disabled="newProjectForm.$invalid" value="Submit" tabindex="4">Submit</button>
+        <a class="cancel" ng-click="projects.resetForm()" tabindex="5">Cancel</a>
+
+      </div>
+    </section>
+
     <div class="project" ng-repeat="project in projects.projects | orderBy:'created_at':true">
       <h3 class="left"><a href="#">{{project.title}}</a></h3>
       <div class="controls right">
         <span>Edit</span>
-        <span ng-click="delete(project)">Delete</span>
+        <span ng-click="projects.delete(project)">Delete</span>
       </div>
       <p class="clear">{{project.client}}</p>
       <p>{{project.description}}</p>
     </div>
   </section>
 
-  <section class="add-form clear">
-    <div ng-click="showAddProjectForm = !showAddProjectForm">Add New Project</div>
-    <div ng-show="showAddProjectForm">
-      <form name="newProjectForm" ng-submit="save(projects.project)">
-        <input type="text" ng-model="projects.project.title" placeholder="Project Title"><br><br>
-        <input type="text" ng-model="projects.project.client" placeholder="Client"><br><br>
-        <textarea ng-model="projects.project.description" placeholder="Project Description"></textarea>
-      </form>
-      <br>
-      <button type="submit" ng-click="save(projects.project)" value="Submit">New Project</button>
-    </div>
+  <section class="logo">
+    <img src="assets/images/cri_logo.png">
   </section>
 
 </div>

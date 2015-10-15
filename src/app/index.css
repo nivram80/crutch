@@ -6,16 +6,23 @@
  *  Do not remove this comments bellow. It's the markers used by wiredep to inject
  *  sass dependencies when defined in the bower.json of your dependencies
  */
+body {
+  color: #555; }
+
 h1 {
   text-transform: uppercase;
-  border-bottom: 3px solid #006400; }
+  color: #555;
+  border-bottom: 3px solid #555; }
 
 a {
   color: #006400;
   transition: all 0.75s ease; }
   a:hover {
-    color: #000;
-    text-decoration: none; }
+    color: #cc9d11;
+    text-decoration: none;
+    cursor: pointer; }
+  a:focus {
+    outline: none; }
 
 .left {
   float: left; }
@@ -25,6 +32,30 @@ a {
 
 .clear {
   clear: both; }
+
+button {
+  background-color: transparent;
+  color: #006400;
+  font-weight: bold;
+  border: 2px solid #006400;
+  border-radius: 4px;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  transition: all 0.75s ease; }
+  button:hover {
+    color: #fff;
+    background-color: #006400;
+    cursor: pointer; }
+  button:focus {
+    outline: #cc9d11 auto 2px;
+    outline-offset: -5px; }
+  button:disabled {
+    color: #ccc;
+    border-color: #ccc; }
+    button:disabled:hover {
+      background-color: transparent;
+      color: #ccc;
+      border-color: #ccc; }
 
 .browsehappy {
   margin: 0.2em 0;
@@ -37,15 +68,52 @@ a {
   .thumbnail img.pull-right {
     width: 50px; }
 
-.add-form {
-  padding-top: 20px; }
+.add-form-section {
+  padding-top: 20px;
+  overflow: hidden; }
+
+.add-form-container {
+  margin-top: 0;
+  transition: all 1s ease; }
+
+.add-form-container.ng-hide {
+  margin-top: -325px;
+  transition: all 1s ease; }
 
 input,
 textarea {
-  width: 100%; }
+  width: 100%;
+  border: 1px solid #555;
+  border-radius: 2px;
+  padding-left: 8px;
+  padding-top: 2px;
+  font-size: 14px; }
+  input:focus,
+  textarea:focus {
+    outline: #cc9d11 auto 2px;
+    outline-offset: -3px; }
+
+input {
+  margin-bottom: 10px; }
+
+.logo {
+  display: none; }
 
 textarea {
   height: 100px; }
+
+.error {
+  color: #990000;
+  font-size: 12px;
+  margin-left: 8px; }
+
+.api-error {
+  margin-top: 10px;
+  margin-bottom: -10px; }
+
+.required {
+  color: #ccc;
+  font-size: 12px; }
 
 .project {
   border-bottom: 1px solid #006400; }
@@ -54,6 +122,24 @@ textarea {
   font-size: 12px;
   margin-top: 30px; }
 
+.cancel {
+  display: inline-block;
+  text-transform: capitalize;
+  margin-left: 20px;
+  color: #555; }
+
+@media (min-width: 768px) {
+  .projects {
+    float: left;
+    width: 50%; }
+
+  .logo {
+    display: block;
+    float: right;
+    width: 40%;
+    margin-top: 25px; }
+    .logo img {
+      width: 100%; } }
 /**
  *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
  *  all your sass files automatically
