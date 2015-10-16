@@ -24,6 +24,7 @@
               errorMessages.push(value[0])
             });
             pc.errors = errorMessages;
+            //pc.errors = errorHandling.parseErrors(error);
           }
         ));
 
