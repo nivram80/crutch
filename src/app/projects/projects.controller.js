@@ -3,7 +3,7 @@
 
   angular
     .module('crutch')
-    .controller('ProjectsController', ['Project', '$scope', function (Project, $scope) {
+    .controller('ProjectsController', ['Project', 'errorService', '$scope', function (Project, errorService, $scope) {
       var pc = this;
       pc.project = new Project();
       pc.showAddProjectForm = false;
@@ -19,15 +19,9 @@
             pc.resetForm();
           },
           function(error) {
-            var errorMessages = [];
-            angular.forEach(error.data, function(value, key) {
-              errorMessages.push(value[0])
-            });
-            pc.errors = errorMessages;
-            //pc.errors = errorHandling.parseErrors(error);
+            pc.errors = errorService.parseErrors(error);
           }
         ));
-
       };
 
       pc.delete = function(project) {
@@ -36,10 +30,9 @@
             _.remove(pc.projects, project);
           },
           function(error){
-            pc.errors = error.data;
+            pc.errors = errorService.parseErrors(error);
           }
         );
-
       };
 
       pc.resetForm = function() {

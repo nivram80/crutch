@@ -5,7 +5,6 @@
     .module('crutch')
     .config(routeConfig);
 
-  /** @ngInject */
   function routeConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {

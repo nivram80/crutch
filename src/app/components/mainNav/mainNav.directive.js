@@ -5,7 +5,6 @@
     .module('crutch')
     .directive('mainNav', mainNav);
 
-  /** @ngInject */
   function mainNav() {
     var directive = {
       restrict: 'E',
@@ -20,7 +19,6 @@
 
     return directive;
 
-    /** @ngInject */
     function MainNavController() {
 
     }

@@ -24,11 +24,12 @@
 
           <textarea ng-model="projects.project.description" placeholder="Project Description" tabindex="3"></textarea>
 
-        </form>
-        <p class="required right">* required fields</p>
+          <p class="required right">* required fields</p>
 
-        <button class="button" type="submit" ng-click="projects.create(projects.project)" ng-disabled="newProjectForm.$invalid" value="Submit" tabindex="4">Submit</button>
-        <a class="cancel" ng-click="projects.resetForm()" tabindex="5">Cancel</a>
+          <button class="button" type="submit" ng-click="projects.create(projects.project)" ng-disabled="newProjectForm.$invalid" value="Submit" tabindex="4">Submit</button>
+          <a class="cancel" ng-click="projects.resetForm()" tabindex="5">Cancel</a>
+
+        </form>
 
       </div>
     </section>

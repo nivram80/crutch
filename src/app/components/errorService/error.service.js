@@ -3,17 +3,17 @@
 
   angular
     .module('crutch')
-    .factory('errorHandling', function() {
+    .factory('errorService', function() {
 
       return {
         parseErrors: function(error){
           var errorMessages = [];
-          angular.forEach(error.data, function(value, key) {
-            errorMessages.push(value[0])
+          angular.forEach(error.data, function(value) {
+            errorMessages.push(value[0]);
           });
           return errorMessages;
         }
-      }
+      };
 
     });
 
