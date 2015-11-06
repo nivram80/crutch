@@ -14,7 +14,8 @@
       });
 
       pc.create = function() {
-        $.when(pc.project.$create(function() {
+        $.when(pc.project.$create().then(
+          function() {
             pc.projects.push(pc.project);
             pc.resetForm();
           },
