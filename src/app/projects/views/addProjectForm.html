@@ -1,0 +1,20 @@
+<section class="add-form-section">
+  <div class="add-form-container" ng-show="showAddProjectForm">
+
+    <form name="newProjectForm" novalidate>
+
+      <input type="text" name="title" ng-model="projects.project.title" placeholder="Project Title *" required tabindex="1">
+      <div class="errors" ng-messages="newProjectForm.title.$error" ng-show="newProjectForm.title.$touched">
+        <p class="error" ng-message="required" ng-show="newProjectForm.title.$dirty">* Project Title is required</p>
+      </div>
+      <input type="text" ng-model="projects.project.client" placeholder="Client" tabindex="2">
+      <textarea ng-model="projects.project.description" placeholder="Project Description" tabindex="3"></textarea>
+      <p class="required right">* required fields</p>
+
+      <button class="button" type="submit" ng-click="projects.addProject(projects.project)" ng-disabled="newProjectForm.$invalid" value="Submit" tabindex="4">Submit</button>
+      <a class="cancel" ng-click="projects.resetAddForm()" tabindex="5">Cancel</a>
+
+    </form>
+
+  </div>
+</section>
