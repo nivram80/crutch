@@ -29,9 +29,7 @@
       pc.update = function(project) {
         $.when(pc.project.$update(project).then(
           function() {
-            var projectId = project.id;
-            var projectsList = $scope.projects.projects;
-            pc.resetEditForm(projectsList, projectId);
+            pc.resetEditForm(project);
           },
           function(error) {
             pc.errors = errorService.parseErrors(error);
@@ -58,24 +56,20 @@
       };
 
       pc.cancelEdit = function(project) {
-        var projectId = project.id;
-        var projectsList = pc.projects;
-        pc.resetEditForm(projectsList, projectId, true);
+        pc.resetEditForm(project, true);
       };
 
-      pc.resetEditForm = function(projectsList, projectId, cancel) {
-        for (var i = 0; i < projectsList.length; i++) {
-          if (projectsList[i].id === projectId) {
-            projectsList[i].editProjectForm.$setPristine();
-            projectsList[i].editProjectForm.$setUntouched();
-            projectsList[i].showEditProjectForm = false;
-            if (cancel) {
-              projectsList[i] = pc.projectCopy;
-            }
-          }
-          pc.errors = [];
-          pc.project = new Project();
+      pc.resetEditForm = function(project, cancel) {
+        project.editProjectForm.$setPristine();
+        project.editProjectForm.$setUntouched();
+        project.showEditProjectForm = false;
+
+        if (cancel) {
+          $scope.project = pc.projectCopy;
         }
+
+        pc.errors = [];
+        pc.project = new Project();
       };
 
       pc.resetAddForm = function() {
