@@ -74,6 +74,13 @@ button {
     }
   }
 }
+.controls {
+  span {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
 
 .browsehappy {
   margin: 0.2em 0;
@@ -107,6 +114,14 @@ button {
 .add-form-container.ng-hide {
   margin-top: -325px;
   transition: all 1s ease;
+}
+
+.edit-form-section {
+  margin: 15px 0;
+}
+
+.edit-form-section.ng-hide {
+
 }
 
 input,
