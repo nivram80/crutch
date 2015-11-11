@@ -1,18 +1,18 @@
-<section class="edit-form-section" ng-show="project.showEditProjectForm">
+<section class="edit-form-section" ng-show="editProjectForm.showEditProjectForm">
   <div class="edit-form-container">
 
-    <form name="project.editProjectForm" novalidate>
+    <form name="editProjectForm" novalidate>
 
       <input type="text" name="title" ng-model="project.title" placeholder="Project Title *" required tabindex="1">
-      <div class="errors" ng-messages="project.editProjectForm.title.$error" ng-show="project.editProjectForm.title.$touched">
-        <p class="error" ng-message="required" ng-show="project.editProjectForm.title.$dirty">* Project Title is required</p>
+      <div class="errors" ng-messages="editProjectForm.title.$error" ng-show="editProjectForm.title.$touched">
+        <p class="error" ng-message="required" ng-show="editProjectForm.title.$dirty">* Project Title is required</p>
       </div>
       <input type="text" ng-model="project.client" placeholder="Client" tabindex="2">
       <textarea ng-model="project.description" placeholder="Project Description" tabindex="3"></textarea>
       <p class="required right">* required fields</p>
 
-      <button class="button" type="submit" ng-click="projects.update(project)" ng-disabled="project.editProjectForm.$pristine || project.editProjectForm.$invalid" value="Submit" tabindex="4">Update</button>
-      <a class="cancel" ng-click="projects.cancelEdit(project);" tabindex="5">Cancel</a>
+      <button class="button" type="submit" ng-click="editProjectCtrl.update(project, editProjectForm)" ng-disabled="project.editProjectForm.$pristine || project.editProjectForm.$invalid" value="Submit" tabindex="4">Update</button>
+      <a class="cancel" ng-click="editProjectCtrl.resetEditForm(editProjectForm, project)" tabindex="5">Cancel</a>
 
     </form>
 

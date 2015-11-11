@@ -11,7 +11,7 @@
         url: '/',
         templateUrl: 'app/projects/views/projects.html',
         controller: 'ProjectsController',
-        controllerAs: 'projects'
+        controllerAs: 'projectsCtrl'
       });
 
     $urlRouterProvider.otherwise('/');

@@ -7,17 +7,17 @@
     <button ng-click="showAddProjectForm = !showAddProjectForm">New Project</button>
 
     <div class="api-error">
-      <div class="error" ng-repeat="error in projects.errors" ng-show="projects.errors">{{error}}</div>
+      <div class="error" ng-repeat="error in projectsCtrl.errors" ng-show="projectsCtrl.errors">{{error}}</div>
     </div>
 
     <add-project-form></add-project-form>
 
-    <div class="project" ng-repeat="project in projects.projects | orderBy:'created_at':true">
-      <div class="project-container" ng-hide="project.showEditProjectForm">
+    <div class="project" ng-repeat="project in projectsCtrl.projects | orderBy:'created_at':true">
+      <div class="project-container" ng-hide="editProjectForm.showEditProjectForm">
         <h3 class="left"><a href="#">{{project.title}}</a></h3>
         <div class="controls right">
-          <span ng-click="projects.copyProject(project); project.showEditProjectForm = !project.showEditProjectForm">Edit</span>
-          <span ng-click="projects.delete(project)">Delete</span>
+          <span ng-click="editProjectCtrl.copyProject(project); editProjectForm.showEditProjectForm = !editProjectForm.showEditProjectForm">Edit</span>
+          <span ng-click="projectsCtrl.delete(project)">Delete</span>
         </div>
         <p class="clear">{{project.client}}</p>
         <p>{{project.description}}</p>

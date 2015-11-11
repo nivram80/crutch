@@ -3,16 +3,16 @@
 
     <form name="newProjectForm" novalidate>
 
-      <input type="text" name="title" ng-model="projects.project.title" placeholder="Project Title *" required tabindex="1">
+      <input type="text" name="title" ng-model="addProjectCtrl.project.title" placeholder="Project Title *" required tabindex="1">
       <div class="errors" ng-messages="newProjectForm.title.$error" ng-show="newProjectForm.title.$touched">
         <p class="error" ng-message="required" ng-show="newProjectForm.title.$dirty">* Project Title is required</p>
       </div>
-      <input type="text" ng-model="projects.project.client" placeholder="Client" tabindex="2">
-      <textarea ng-model="projects.project.description" placeholder="Project Description" tabindex="3"></textarea>
+      <input type="text" ng-model="addProjectCtrl.project.client" placeholder="Client" tabindex="2">
+      <textarea ng-model="addProjectCtrl.project.description" placeholder="Project Description" tabindex="3"></textarea>
       <p class="required right">* required fields</p>
 
-      <button class="button" type="submit" ng-click="projects.addProject(projects.project)" ng-disabled="newProjectForm.$invalid" value="Submit" tabindex="4">Submit</button>
-      <a class="cancel" ng-click="projects.resetAddForm()" tabindex="5">Cancel</a>
+      <button class="button" type="submit" ng-click="addProjectCtrl.addProject(addProjectCtrl.project)" ng-disabled="newProjectForm.$invalid" value="Submit" tabindex="4">Submit</button>
+      <a class="cancel" ng-click="addProjectCtrl.resetAddForm()" tabindex="5">Cancel</a>
 
     </form>
 
