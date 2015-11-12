@@ -13,12 +13,15 @@
     <add-project-form></add-project-form>
 
     <div class="project" ng-repeat="project in projectsCtrl.projects | orderBy:'created_at':true">
+
       <div class="project-container" ng-hide="editProjectForm.showEditProjectForm">
         <h3 class="left"><a href="#">{{project.title}}</a></h3>
+
         <div class="controls right">
           <span ng-click="editProjectCtrl.copyProject(project); editProjectForm.showEditProjectForm = !editProjectForm.showEditProjectForm">Edit</span>
           <span ng-click="projectsCtrl.delete(project)">Delete</span>
         </div>
+
         <p class="clear">{{project.client}}</p>
         <p>{{project.description}}</p>
       </div>

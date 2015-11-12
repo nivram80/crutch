@@ -8,9 +8,11 @@
       </div>
 
       <input type="text" name="title" ng-model="addProjectCtrl.project.title" placeholder="Project Title *" required tabindex="1">
+
       <div class="errors" ng-messages="newProjectForm.title.$error" ng-show="newProjectForm.title.$touched">
         <p class="error" ng-message="required" ng-show="newProjectForm.title.$dirty">* Project Title is required</p>
       </div>
+
       <input type="text" ng-model="addProjectCtrl.project.client" placeholder="Client" tabindex="2">
       <textarea ng-model="addProjectCtrl.project.description" placeholder="Project Description" tabindex="3"></textarea>
       <p class="required right">* required fields</p>
