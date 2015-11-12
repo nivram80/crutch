@@ -3,6 +3,10 @@
 
     <form name="newProjectForm" novalidate>
 
+      <div class="api-error">
+        <div class="error" ng-repeat="error in addProjectCtrl.errors" ng-show="addProjectCtrl.errors">{{error}}</div>
+      </div>
+
       <input type="text" name="title" ng-model="addProjectCtrl.project.title" placeholder="Project Title *" required tabindex="1">
       <div class="errors" ng-messages="newProjectForm.title.$error" ng-show="newProjectForm.title.$touched">
         <p class="error" ng-message="required" ng-show="newProjectForm.title.$dirty">* Project Title is required</p>
