@@ -7,7 +7,7 @@
 
   function routeConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('home', {
+      .state('projects', {
         url: '/',
         templateUrl: 'app/projects/views/projects.html',
         controller: 'ProjectsController',
