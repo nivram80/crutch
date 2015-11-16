@@ -10,7 +10,6 @@
       <div class="ticket" ng-repeat="ticket in ticketsCtrl.tickets | filter: {state_id: state.id, project_id: ticketsCtrl.projectId}">
         <h4 class="ticket-title">{{ticket.title}}</h4>
         <div class="ticket-details">{{ticket.details}}</div>
-
       </div>
 
     </section>

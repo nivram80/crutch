@@ -3,11 +3,11 @@
 
   angular
     .module('crutch')
-    .controller('TicketsController', ['Ticket', 'projectTickets', 'State', 'errorService', function (Ticket, projectTickets, State, errorService) {
+    .controller('TicketsController', ['Ticket', 'State', '$stateParams', 'errorService', function (Ticket, State, $stateParams, errorService) {
       var tc = this;
       tc.errors = [];
       tc.ticket = new Ticket();
-      tc.projectId = projectTickets.getTicketProjectId();
+      tc.projectId = $stateParams.id;
       tc.tickets = Ticket.query();
       tc.states = State.query();
 

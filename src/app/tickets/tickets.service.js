@@ -16,23 +16,6 @@
         }
       );
 
-    })
-
-    .service('projectTickets', function() {
-
-      var ticketProjectId;
-
-      return {
-
-        setTicketProjectId : function(project_id) {
-          ticketProjectId = project_id;
-        },
-
-        getTicketProjectId : function() {
-          return ticketProjectId;
-        }
-      };
-
-    })
+    });
 
 })();
