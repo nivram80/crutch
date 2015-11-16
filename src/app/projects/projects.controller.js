@@ -3,7 +3,7 @@
 
   angular
     .module('crutch')
-    .controller('ProjectsController', ['Project', 'errorService', '$scope', function (Project, errorService, $scope) {
+    .controller('ProjectsController', ['Project', 'projectTickets', 'Ticket', 'errorService', '$location', function (Project, projectTickets, Ticket, errorService, $location) {
       var pc = this;
       pc.project = new Project();
       pc.errors = [];
@@ -24,6 +24,11 @@
             }
           );
         }
+      };
+
+      pc.titleClick = function(project) {
+        projectTickets.setTicketProjectId(project.id);
+        $location.path('/project/' + project.id + '/tickets');
       };
 
     }]);

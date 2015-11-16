@@ -12,6 +12,12 @@
         templateUrl: 'app/projects/views/projects.html',
         controller: 'ProjectsController',
         controllerAs: 'projectsCtrl'
+      })
+      .state('tickets', {
+        url: '/project/:id/tickets',
+        templateUrl: 'app/tickets/views/tickets.html',
+        controller: 'TicketsController',
+        controllerAs: 'ticketsCtrl'
       });
 
     $urlRouterProvider.otherwise('/');

@@ -14,5 +14,6 @@
     "inject": false,
     "module": false,
     "$": false
-  }
+  },
+  "devel": true
 }

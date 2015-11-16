@@ -1,0 +1,19 @@
+<main-nav></main-nav>
+
+<section class="states">
+
+  <div class="state" ng-repeat="state in ticketsCtrl.states">
+    <div class="state-title">{{state.title}}</div>
+
+    <section class="tickets">
+
+      <div class="ticket" ng-repeat="ticket in ticketsCtrl.tickets | filter: {state_id: state.id, project_id: ticketsCtrl.projectId}">
+        <h4 class="ticket-title">{{ticket.title}}</h4>
+        <div class="ticket-details">{{ticket.details}}</div>
+
+      </div>
+
+    </section>
+  </div>
+
+</section>

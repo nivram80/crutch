@@ -4,6 +4,7 @@
   <h1>Projects</h1>
 
   <section class="projects">
+
     <button ng-click="showAddProjectForm = !showAddProjectForm">New Project</button>
 
     <div class="api-error">
@@ -15,7 +16,7 @@
     <div class="project" ng-repeat="project in projectsCtrl.projects | orderBy:'created_at':true">
 
       <div class="project-container" ng-hide="editProjectForm.showEditProjectForm">
-        <h3 class="left"><a href="#">{{project.title}}</a></h3>
+        <h3 class="left"><div ng-click="projectsCtrl.titleClick(project)">{{project.title}}</div></h3>
 
         <div class="controls right">
           <span ng-click="editProjectCtrl.copyProject(project); editProjectForm.showEditProjectForm = !editProjectForm.showEditProjectForm">Edit</span>

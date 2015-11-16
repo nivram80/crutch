@@ -74,6 +74,16 @@ button {
     }
   }
 }
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.spinner {
+  //position: relative !important;
+  //top: 75% !important;
+}
+
 .controls {
   span {
     &:hover {
@@ -180,6 +190,50 @@ textarea {
   text-transform: capitalize;
   margin-left: 20px;
   color: #555;
+}
+
+.projects {
+  position: relative;
+}
+
+.states {
+  white-space: nowrap;
+}
+
+.state {
+  display: inline-block;
+  white-space: normal;
+  width: 250px;
+  text-align: center;
+  border: 1px solid #555;
+  border-radius: 4px;
+  margin: 0 2px;
+  background: #ddd;
+  padding-bottom: 10px;
+  vertical-align: top;
+}
+
+.state-title {
+  border-bottom: 1px solid #555;
+  color: #fff;
+  background: #555;
+  padding: 5px 0;
+}
+
+.ticket {
+  height: 125px;
+  border: 1px solid #006400;
+  border-radius: 4px;
+  margin: 5px 5px 5px;
+  padding: 5px 5px 15px;
+  background: #fff;
+  text-align: left;
+  .ticket-title {
+    color: #006400;
+  }
+  .ticket-details {
+    color: #555;
+  }
 }
 
 @media (min-width: 768px) {

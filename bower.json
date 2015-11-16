@@ -14,7 +14,8 @@
     "angular-messages": "latest",
     "animate.css": "~3.3.0",
     "angular": "~1.4.0",
-    "lodash": "latest"
+    "lodash": "latest",
+    "angular-spinner": "latest"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.0"
