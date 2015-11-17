@@ -4,10 +4,12 @@
 
   <div class="state" ng-repeat="state in ticketsCtrl.states">
     <div class="state-title">{{state.title}}
-      <div class="add-button" title="Add Ticket">+</div>
+      <div class="add-button" title="Add Ticket" ng-click="showAddTicketForm = !showAddTicketForm">+</div>
     </div>
 
     <section class="tickets">
+
+      <add-ticket-form></add-ticket-form>
 
       <div class="ticket" ng-repeat="ticket in ticketsCtrl.tickets | filter: {state_id: state.id, project_id: ticketsCtrl.projectId}">
         <h4 class="ticket-title">{{ticket.title}}</h4>

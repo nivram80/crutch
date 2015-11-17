@@ -1,0 +1,25 @@
+.tickets {
+  .add-form-section {
+    padding: 0 10px;
+    margin-bottom: 25px;
+    button {
+      margin-left: -48px;
+    }
+  }
+}
+
+.ticket {
+  height: 125px;
+  border: 1px solid #006400;
+  border-radius: 4px;
+  margin: 5px 10px;
+  padding: 5px 5px 15px;
+  background: #fff;
+  text-align: left;
+  .ticket-title {
+    color: #006400;
+  }
+  .ticket-details {
+    color: #555;
+  }
+}

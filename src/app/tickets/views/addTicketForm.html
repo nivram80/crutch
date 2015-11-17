@@ -1,0 +1,25 @@
+<section class="add-form-section">
+  <div class="add-form-container" ng-show="showAddTicketForm" ng-cloak>
+
+    <form name="newTicketForm" novalidate>
+
+      <div class="api-error">
+        <div class="error" ng-repeat="error in addTicketCtrl.errors" ng-show="addTicketCtrl.errors">{{error}}</div>
+      </div>
+
+      <input type="text" name="title" ng-model="addTicketCtrl.ticket.title" placeholder="Ticket Title *" required tabindex="1">
+
+      <div class="errors" ng-messages="newTicketForm.title.$error" ng-show="newTicketForm.title.$touched">
+        <p class="error" ng-message="required" ng-show="newTicketForm.title.$dirty">* Ticket Title is required</p>
+      </div>
+
+      <textarea ng-model="addTicketCtrl.ticket.details" placeholder="Ticket Details *" tabindex="3"></textarea>
+      <p class="required right">* required fields</p>
+
+      <button class="button" type="submit" ng-click="addTicketCtrl.addTicket(addTicketCtrl.ticket)" ng-disabled="newTicketForm.$invalid" value="Submit" tabindex="4">Submit</button>
+      <a class="cancel" ng-click="addTicketCtrl.resetAddForm()" tabindex="5">Cancel</a>
+
+    </form>
+
+  </div>
+</section>
