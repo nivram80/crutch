@@ -17,30 +17,33 @@
     return directive;
 
     function addTicketController(Ticket, errorService, $scope) {
-      var pc = this;
-      pc.ticket = new Ticket();
-      pc.errors = [];
+      var atc = this;
+      atc.ticket = new Ticket();
+      atc.errors = [];
 
-      pc.addTicket = function() {
-        pc.ticket.project_id = parseInt($scope.ticketsCtrl.projectId);
-        pc.ticket.state_id = parseInt($scope.state.id);
-        $.when(pc.ticket.$create().then(
+      atc.addTicket = function() {
+        atc.ticket.project_id = parseInt($scope.ticketsCtrl.projectId);
+        atc.ticket.state_id = parseInt($scope.state.id);
+        atc.ticket.previous_state_id = parseInt($scope.state.id);
+
+        $.when(atc.ticket.$create().then(
           function() {
-            $scope.ticketsCtrl.tickets.push(pc.ticket);
-            pc.resetAddForm();
+            $scope.ticketsCtrl.tickets.push(atc.ticket);
+            atc.resetAddForm();
+            Ticket.query();
           },
           function(error) {
-            pc.errors = errorService.parseErrors(error);
+            atc.errors = errorService.parseErrors(error);
           }
         ));
       };
 
-      pc.resetAddForm = function() {
+      atc.resetAddForm = function() {
         $scope.newTicketForm.$setPristine();
         $scope.newTicketForm.$setUntouched();
         $scope.showAddTicketForm = false;
-        pc.errors = [];
-        pc.ticket = new Ticket();
+        atc.errors = [];
+        atc.ticket = new Ticket();
       };
 
     }

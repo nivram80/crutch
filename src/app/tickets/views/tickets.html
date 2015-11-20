@@ -2,7 +2,13 @@
 
 <section class="states">
 
-  <div class="state" ng-repeat="state in ticketsCtrl.states">
+  <div class="state"
+       ng-repeat="state in ticketsCtrl.states"
+       data-drop="true"
+       jqyoui-droppable="{
+          multiple: true,
+          beforeDrop: 'moveTicket({state: state})'
+       }">
     <div class="state-title">{{state.title}}
       <div class="add-button" title="Add Ticket" ng-click="showAddTicketForm = !showAddTicketForm">+</div>
     </div>
@@ -11,7 +17,11 @@
 
       <add-ticket-form></add-ticket-form>
 
-      <div class="ticket" ng-repeat="ticket in ticketsCtrl.tickets | filter: {state_id: state.id, project_id: ticketsCtrl.projectId}">
+      <div class="ticket"
+           ng-repeat="ticket in ticketsCtrl.tickets | filter: {state_id: state.id, project_id: ticketsCtrl.projectId} | orderBy: 'priority':false"
+           data-drag="true"
+           jqyoui-draggable="{animate: true, onStart: 'onStartCallback({ticket: ticket})'}"
+           data-jqyoui-options="{revert: 'invalid'}">
         <h4 class="ticket-title">{{ticket.title}}</h4>
         <div class="ticket-details">{{ticket.details}}</div>
       </div>
@@ -20,3 +30,8 @@
   </div>
 
 </section>
+
+
+<br>
+{{ticketsCtrl.tickets | json}}
+
