@@ -3,13 +3,14 @@
 
   angular
     .module('crutch')
-    .controller('TicketsController', ['Ticket', 'State', '$stateParams', 'errorService', '$scope', function (Ticket, State, $stateParams, errorService, $scope) {
+    .controller('TicketsController', ['Ticket', 'State', 'Project', '$stateParams', 'errorService', '$scope', function (Ticket, State, Project, $stateParams, errorService, $scope) {
       var tc = this;
       tc.errors = [];
       tc.ticket = new Ticket();
       tc.projectId = $stateParams.id;
       tc.tickets = Ticket.query();
       tc.states = State.query();
+      tc.project = Project.show({id: parseInt(tc.projectId)});
 
       //tc.delete = function(ticket) {
       //  var confirmed = confirm('Are you sure you want to delete?');
